@@ -14,19 +14,17 @@ public class TripMConfig {
 	CommandLineRunner commandLineRunner(ITripMRepo tripMRepo) {
 		return args -> {
 			Tripmember bob = new Tripmember(
-					1L,
 					"bob",
 					"bob@gmail.com",
 					"ldkjfskfj",
-					LocalDate.of(2000, Month.APRIL,5),
-					21
+					LocalDate.of(2000, Month.APRIL,5)
 			);
 			Tripmember alex = new Tripmember(
 					"alex",
 					"alex@gmail.com",
 					"lddfsdfsfkjfskfj",
-					LocalDate.of(2001, Month.JANUARY,5),
-					22
+					LocalDate.of(2001, Month.JANUARY,5)
+
 			);
 
 
