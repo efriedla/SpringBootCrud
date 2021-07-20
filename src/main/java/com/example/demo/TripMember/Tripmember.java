@@ -3,11 +3,19 @@ package com.example.demo.TripMember;
 import lombok.*;
 
 import java.time.LocalDate;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.*;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tripmember {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false, updatable = false)
 	private Long id;
 	private String name;
 	private String email;
