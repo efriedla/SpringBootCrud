@@ -24,7 +24,6 @@ public class TripMConfig {
 					"alex@gmail.com",
 					"lddfsdfsfkjfskfj",
 					LocalDate.of(2001, Month.JANUARY,5)
-
 			);
 
 

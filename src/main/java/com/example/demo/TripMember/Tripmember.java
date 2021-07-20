@@ -30,8 +30,17 @@ public class Tripmember {
 		this.password = password;
 		this.dob = dob;
 	}
+	//no id or dob
+	public Tripmember(String name, String email, String password) {
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
 
 	public int getAge(){
+		if(dob == null){
+			setDob(LocalDate.now());
+		}
 		return Period.between(dob, LocalDate.now()).getYears();
 	}
 
