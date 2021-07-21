@@ -28,4 +28,14 @@ public class TripMController {
 	public void deleteMember(@PathVariable("tripMemberId") Long id){
 		tripMService.deleteTripMember(id);
 	}
+	@PutMapping(path = "tripMemberId");
+	public void updateMember(
+			@PathVariable("tripMemberId") Long id,
+			@RequestParam(required = false) String name,
+			@RequestParam(required = false) String email
+			){
+
+		tripMService.updateTripMember(id, name, email);
+	}
+
 }

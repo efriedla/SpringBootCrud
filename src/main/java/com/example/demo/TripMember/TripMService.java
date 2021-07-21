@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
@@ -40,5 +41,11 @@ public class TripMService {
 			throw new IllegalStateException("does not exists" + id);
 		}
 		iTripMRepo.deleteById(id);
+	}
+
+	@Transactional
+	public void updateTripMember(Long id, String name, String email) {
+
+
 	}
 }
