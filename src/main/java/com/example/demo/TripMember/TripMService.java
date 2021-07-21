@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TripMService {
@@ -22,7 +23,22 @@ public class TripMService {
 	}
 
 	public void addNewTripMember(@RequestBody Tripmember tripmember) {
-		System.out.println(tripmember);
-		iTripMRepo.save(tripmember);
+		Optional byEmail =  iTripMRepo.findByEmail(tripmember.getEmail());
+		if(byEmail.isPresent()){
+			System.out.println("****OPPPSSS******");
+			throw new IllegalStateException("Email taken");
+		}else{
+			System.out.println(tripmember);
+			iTripMRepo.save(tripmember);
+		}
+
+	}
+
+	public void deleteTripMember(Long id) {
+		boolean exists =  iTripMRepo.existsById(id);
+		if(!exists){
+			throw new IllegalStateException("does not exists" + id);
+		}
+		iTripMRepo.deleteById(id);
 	}
 }

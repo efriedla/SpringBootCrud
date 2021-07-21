@@ -1,9 +1,6 @@
 package com.example.demo.TripMember;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -25,5 +22,10 @@ public class TripMController {
 	@PostMapping("/save")
 	public void addTripMember(Tripmember tripmember){
 		tripMService.addNewTripMember(tripmember);
+	}
+
+	@DeleteMapping(path = "{tripMemberId}")
+	public void deleteMember(@PathVariable("tripMemberId") Long id){
+		tripMService.deleteTripMember(id);
 	}
 }
