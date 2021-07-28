@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -43,9 +44,16 @@ public class TripMService {
 		iTripMRepo.deleteById(id);
 	}
 
-	@Transactional
-	public void updateTripMember(Long id, String name, String email) {
+	public Tripmember findTMemberById(Long id) {
+		return iTripMRepo.findById(id)
+				.orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
+	}
 
+	public Tripmember getTripMemberById(Long id) {
+		return iTripMRepo.findTripMemverById(id).orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
+	}
 
+	public Tripmember updateTripMember(Tripmember tripmember) {
+		return iTripMRepo.save(tripmember);
 	}
 }

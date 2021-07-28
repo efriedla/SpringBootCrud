@@ -14,4 +14,6 @@ public interface ITripMRepo extends JpaRepository<Tripmember, Long> {
 	// Select * From Tripmember Where email = email
 //	@Query("Select * From Tripmemeber t Where t.email = ?1")
 	Optional<Tripmember> findByEmail(String email);
+
+	Optional<Tripmember> findTripMemverById(Long id);
 }
